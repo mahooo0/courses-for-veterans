@@ -21,10 +21,10 @@
   2. Браузер показывает страницу на localhost:3000
   3. TypeScript компилируется без ошибок (`pnpm build` проходит)
   4. Tailwind-классы применяются к элементам на странице
-**Plans**: TBD
+**Plans:** 1 plan
 
 Plans:
-- [ ] 01-01: Initialize Next.js project with pnpm and configure Tailwind
+- [ ] 01-01-PLAN.md -- Scaffold Next.js project with pnpm, Tailwind v4, and verify dev server + build
 
 ### Phase 2: FSD Structure
 **Goal**: Проект организован по FSD-архитектуре со всеми слоями и shared-директориями
