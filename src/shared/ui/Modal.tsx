@@ -7,9 +7,15 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  variant?: "fullscreen" | "dialog";
 }
 
-export function Modal({ isOpen, onClose, children }: ModalProps) {
+export function Modal({
+  isOpen,
+  onClose,
+  children,
+  variant = "fullscreen",
+}: ModalProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -21,11 +27,21 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
     };
   }, [isOpen]);
 
+  const wrapperMobile =
+    variant === "dialog"
+      ? "max-sm:px-4"
+      : "max-sm:items-stretch";
+
+  const contentMobile =
+    variant === "dialog"
+      ? "max-sm:w-full"
+      : "max-sm:w-full max-sm:h-full";
+
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center max-sm:items-stretch"
+          className={`fixed inset-0 z-50 flex items-center justify-center ${wrapperMobile}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -39,7 +55,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
 
           {/* Content */}
           <motion.div
-            className="relative z-10 max-sm:w-full max-sm:h-full"
+            className={`relative z-10 ${contentMobile}`}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}

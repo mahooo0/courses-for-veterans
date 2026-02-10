@@ -12,6 +12,7 @@
   --color-yellow-accent: #D9FAA0;
   --color-lilac: #DFD8EB;
   --color-blue-logo: #39A7E0;
+  --breakpoint-desktop: 1728px;
 }
 
 @theme inline {

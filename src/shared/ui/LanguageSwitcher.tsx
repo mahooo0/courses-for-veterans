@@ -1,30 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useTranslation } from "@/shared/i18n";
 
-type Language = "UA" | "EN";
+interface LanguageSwitcherProps {
+  variant?: "light" | "dark";
+}
 
-export function LanguageSwitcher() {
-  const [active, setActive] = useState<Language>("UA");
+export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
+  const { locale, setLocale } = useTranslation();
+
+  const activeClass =
+    variant === "dark"
+      ? "border-green-dark font-medium text-green-dark"
+      : "border-yellow-accent font-medium text-yellow-accent";
+
+  const inactiveClass =
+    variant === "dark"
+      ? "border-green-secondary font-light text-green-secondary"
+      : "border-lilac font-light text-lilac";
 
   return (
     <div className="flex items-center gap-4">
       <button
-        onClick={() => setActive("UA")}
+        onClick={() => setLocale("uk")}
         className={`flex h-[49px] w-[49px] items-center justify-center rounded-full border font-secondary text-xl ${
-          active === "UA"
-            ? "border-yellow-accent font-medium text-yellow-accent"
-            : "border-lilac font-light text-lilac"
+          locale === "uk" ? activeClass : inactiveClass
         }`}
       >
         UA
       </button>
       <button
-        onClick={() => setActive("EN")}
+        onClick={() => setLocale("en")}
         className={`flex h-[49px] w-[49px] items-center justify-center rounded-full border font-secondary text-xl ${
-          active === "EN"
-            ? "border-yellow-accent font-medium text-yellow-accent"
-            : "border-lilac font-light text-lilac"
+          locale === "en" ? activeClass : inactiveClass
         }`}
       >
         EN

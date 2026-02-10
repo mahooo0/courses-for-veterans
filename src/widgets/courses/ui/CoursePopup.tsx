@@ -3,15 +3,17 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Modal } from "@/shared/ui";
+import { useTranslation } from "@/shared/i18n";
 import closeIcon from "@/shared/assets/icons/close.svg";
 import bulletImg from "@/shared/assets/images/bullet.png";
-import type { Course } from "./Courses";
+import type { Course } from "@/entities/course";
 
 interface CoursePopupProps {
   course: Course | null;
   courses: Course[];
   onClose: () => void;
   onSelectCourse: (course: Course) => void;
+  onStartToday: () => void;
 }
 
 export function CoursePopup({
@@ -19,12 +21,20 @@ export function CoursePopup({
   courses,
   onClose,
   onSelectCourse,
+  onStartToday,
 }: CoursePopupProps) {
+  const { t } = useTranslation();
+
   if (!course) return null;
+
+  const handleStartToday = () => {
+    onClose();
+    onStartToday();
+  };
 
   return (
     <Modal isOpen={!!course} onClose={onClose}>
-      <div className="w-[1260px] rounded-[20px] bg-lilac p-10 max-sm:w-full max-sm:h-full max-sm:rounded-none max-sm:p-6 max-sm:max-h-[100vh] max-sm:overflow-y-auto max-lg:w-[90vw] lg:w-[1000px] xl:w-[1260px]">
+      <div className="w-[90vw] max-w-[1260px] rounded-[20px] bg-lilac p-10 max-sm:w-full max-sm:max-w-none max-sm:h-full max-sm:rounded-none max-sm:p-6 max-sm:max-h-[100vh] max-sm:overflow-y-auto">
         {/* Top bar */}
         <div className="mb-6 flex items-center justify-between max-sm:flex-col-reverse max-sm:items-end max-sm:gap-4">
           {/* Course tabs */}
@@ -115,8 +125,11 @@ export function CoursePopup({
         </AnimatePresence>
 
         {/* CTA button */}
-        <button className="w-full cursor-pointer rounded-lg bg-yellow-accent px-6 py-4 font-sans text-[24px] font-medium uppercase leading-[1.1] tracking-tight text-green-dark transition-opacity hover:opacity-90">
-          [почати сьогодні]
+        <button
+          onClick={handleStartToday}
+          className="w-full cursor-pointer rounded-lg bg-yellow-accent px-6 py-4 font-sans text-[24px] font-medium uppercase leading-[1.1] tracking-tight text-green-dark transition-opacity hover:opacity-90"
+        >
+          {t.courses.startToday}
         </button>
       </div>
     </Modal>

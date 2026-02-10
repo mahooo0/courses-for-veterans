@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Onest, Geologica } from "next/font/google";
+import { Providers } from "@/shared/ui";
 import "./globals.css";
 
 const onest = Onest({
@@ -29,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${onest.variable} ${geologica.variable} antialiased`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

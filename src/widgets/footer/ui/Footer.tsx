@@ -1,14 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import { Logo, LanguageSwitcher } from "@/shared/ui";
+import { useTranslation } from "@/shared/i18n";
 import phoneSrc from "@/shared/assets/icons/phone.svg";
 import envelopeSrc from "@/shared/assets/icons/envelope.svg";
 import mapMarkerSrc from "@/shared/assets/icons/map-marker.svg";
 import socialMediaSrc from "@/shared/assets/icons/social-media.svg";
 
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-green-dark px-[104px] py-[80px] max-sm:px-4 max-sm:py-10 sm:px-8 md:px-12 lg:px-16 xl:px-[104px]">
-      <div className="flex gap-[228px] max-md:flex-col max-md:items-start max-md:gap-8 md:gap-12 lg:gap-24 xl:gap-[228px]">
+      <div className="flex gap-[228px] max-xl:flex-col max-md:items-start max-md:gap-8 md:gap-12 lg:gap-24 xl:gap-[228px]">
         {/* Logo */}
         <Logo />
 
@@ -35,8 +40,7 @@ export function Footer() {
               className="shrink-0"
             />
             <span className="font-sans text-base tracking-tight text-lilac">
-              вул. 1-ї Гвардійської Армії, 39а, Чернігів, Чернігівська область,
-              14000
+              {t.footer.address}
             </span>
           </div>
         </div>
@@ -46,7 +50,7 @@ export function Footer() {
           <LanguageSwitcher />
           <Image
             src={socialMediaSrc}
-            alt="Соціальні мережі"
+            alt={t.footer.socialMediaAlt}
             width={212}
             height={60}
           />

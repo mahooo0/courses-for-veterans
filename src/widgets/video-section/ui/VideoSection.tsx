@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import { useTranslation } from "@/shared/i18n";
 import videoThumbnail from "@/shared/assets/images/video-thumbnail.png";
 import videoPoster from "@/shared/assets/images/video-poster.png";
 import playCircleIcon from "@/shared/assets/icons/play-circle.svg";
@@ -14,6 +15,7 @@ export function VideoSection() {
   const [isMuted, setIsMuted] = useState(true);
   const [videoStarted, setVideoStarted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { t } = useTranslation();
 
   const handleWatch = () => {
     setIsPlaying(true);
@@ -55,7 +57,7 @@ export function VideoSection() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}>
             {/* Title with masked thumbnail */}
-            <div className="relative ml-[100px] h-[135px] w-[911px] max-sm:mr-1 max-sm:ml-[0px] max-sm:h-auto max-sm:w-full max-sm:pr-4 sm:ml-8 md:ml-12 lg:ml-16 xl:ml-[100px] max-lg:w-full max-lg:pr-4 lg:w-[800px] xl:w-[911px]">
+            <div className="relative  h-[135px] w-[911px] max-sm:mr-1 max-sm:ml-[0px] max-sm:h-auto max-sm:w-full max-sm:pr-4 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-[100px] max-lg:w-full max-lg:pr-4 lg:w-[800px] xl:w-full">
               <h2
                 className="relative z-10 text-left font-sans text-[150px] font-extrabold uppercase leading-[0.9] tracking-tight max-sm:text-[48px] sm:text-[64px] md:text-[80px] lg:text-[120px] xl:text-[150px]"
                 style={{
@@ -66,12 +68,12 @@ export function VideoSection() {
                   backgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}>
-                Як це було
+                {t.video.title}
               </h2>
             </div>
 
             {/* Thumbnail strip + watch button */}
-            <div className="mx-auto mt-[36px] flex w-full flex-col items-end max-xl:w-full max-xl:px-4">
+            <div className="mx-auto mt-[36px] flex w-full flex-col items-end max-xl:px-4">
               <div className="w-full overflow-hidden rounded-lg">
                 <Image
                   src={videoPoster}
@@ -83,9 +85,9 @@ export function VideoSection() {
               </div>
               <button
                 onClick={handleWatch}
-                className="mt-2 cursor-pointer font-sans text-[24px] font-normal uppercase tracking-tight text-yellow-accent max-sm:text-[16px]"
+                className="mt-2 cursor-pointer font-sans text-[24px] font-normal uppercase tracking-tight text-yellow-accent max-sm:text-[16px] mr-10"
                 style={{ letterSpacing: "-0.07em" }}>
-                [дивитись відео]
+                {t.video.watchVideo}
               </button>
             </div>
           </motion.div>
@@ -145,7 +147,7 @@ export function VideoSection() {
                   onClick={handleClose}
                   className="cursor-pointer font-sans text-[24px] font-normal uppercase text-green-secondary max-sm:text-[16px]"
                   style={{ letterSpacing: "-0.07em" }}>
-                  [закрити]
+                  {t.video.close}
                 </button>
               </div>
             </div>
