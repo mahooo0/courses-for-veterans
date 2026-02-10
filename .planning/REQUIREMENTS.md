@@ -9,7 +9,7 @@
 
 - [ ] **SETUP-01**: Next.js приложение инициализировано с App Router и TypeScript
 - [ ] **SETUP-02**: pnpm настроен как пакетный менеджер
-- [ ] **SETUP-03**: Tailwind CSS подключён и настроен с базовой конфигурацией
+- [ ] **SETUP-03**: Tailw
 
 ### FSD Architecture
 
