@@ -58,15 +58,15 @@
 | FSD-01 | Phase 2 | Pending |
 | FSD-02 | Phase 2 | Pending |
 | FSD-03 | Phase 2 | Pending |
-| LAND-01 | Phase 2 | Pending |
-| LAND-02 | Phase 2 | Pending |
-| LAND-03 | Phase 2 | Pending |
+| LAND-01 | Phase 3 | Pending |
+| LAND-02 | Phase 3 | Pending |
+| LAND-03 | Phase 3 | Pending |
 
 **Coverage:**
 - v1 requirements: 9 total
 - Mapped to phases: 9
-- Unmapped: 0 ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-10*
-*Last updated: 2026-02-10 after initial definition*
+*Last updated: 2026-02-10 after roadmap creation*
