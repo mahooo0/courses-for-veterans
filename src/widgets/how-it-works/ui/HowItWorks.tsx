@@ -12,7 +12,7 @@ export function HowItWorks({ onTryNow }: HowItWorksProps) {
   const { t } = useTranslation();
 
   return (
-    <section className="px-[100px] py-[80px] max-sm:px-0 sm:px-8 md:px-12 lg:px-16 xl:px-[100px]">
+    <section id="how-it-works" className="px-[100px] py-[80px] max-sm:px-0 sm:px-8 md:px-12 lg:px-16 xl:px-[100px]">
       <div className="mx-auto flex w-full max-w-[1528px] flex-col gap-12">
         {/* Title */}
         <h2 className="font-sans text-[48px] max-sm:pl-4 font-normal uppercase leading-[1.1] tracking-tight text-lilac max-sm:text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px]">

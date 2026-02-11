@@ -24,7 +24,7 @@ export function Courses({
 
   return (
     <>
-      <section className="relative h-[1048px] overflow-hidden bg-green-dark px-[100px] pt-[52px] pb-[80px] max-sm:h-auto max-sm:px-4 sm:px-8 md:px-12 md:h-auto lg:px-16 lg:h-[900px] xl:px-[100px] xl:h-[1048px]">
+      <section id="courses" className="relative h-[1048px] overflow-hidden bg-green-dark px-[100px] pt-[52px] pb-[80px] max-sm:h-auto max-sm:px-4 sm:px-8 md:px-12 md:h-auto lg:px-16 lg:h-[900px] xl:px-[100px] xl:h-[1048px]">
         {/* Decorative cross pattern background */}
         <Image
           src={coursesBgImg}

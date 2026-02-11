@@ -42,7 +42,7 @@ export function ForWhom() {
   const { t } = useTranslation();
 
   return (
-    <section className="bg-green-dark px-[100px] py-[80px] max-sm:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[100px]">
+    <section id="for-whom" className="bg-green-dark px-[100px] py-[80px] max-sm:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[100px]">
       <div className="relative mx-auto w-full max-w-[1528px]">
         {/* Title row */}
         <div className="flex items-start justify-between max-sm:flex-col max-sm:gap-6">

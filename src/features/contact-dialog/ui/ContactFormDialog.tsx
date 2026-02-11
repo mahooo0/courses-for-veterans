@@ -2,7 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Modal } from "@/shared/ui";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "@/shared/ui/dialog";
 import { useTranslation } from "@/shared/i18n";
 import closeIcon from "@/shared/assets/icons/close.svg";
 import successDecorationImg from "@/shared/assets/images/success-decoration.png";
@@ -44,15 +49,21 @@ export function ContactFormDialog({ isOpen, onClose }: ContactFormDialogProps) {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={handleClose} variant="dialog">
-      <div className="w-[743px] rounded-[20px] bg-lilac p-9 pb-14 max-sm:w-[calc(100vw-32px)] max-sm:max-h-[90vh] max-sm:overflow-y-auto max-sm:p-6">
+    <Dialog
+      open={isOpen}
+      onOpenChange={(open) => {
+        if (!open) handleClose();
+      }}>
+      <DialogContent
+        showCloseButton={false}
+        className="!min-w-[743px] max-md:!min-w-screen rounded-[20px] border-none bg-lilac p-9 pb-14 max-sm:!w-[calc(100vw-2rem)] max-sm:p-6">
         {step === "form" ?
           <>
             {/* Header row */}
-            <div className="mb-6 flex items-start justify-between">
-              <h2 className="font-sans text-[48px] font-bold uppercase leading-[1.1] tracking-tight text-green-secondary max-sm:text-[32px]">
+            <div className="flex items-start justify-between">
+              <DialogTitle className="font-sans text-[48px] font-bold uppercase leading-[1.1] tracking-tight text-green-secondary max-sm:text-[32px]">
                 {t.contactDialog.title}
-              </h2>
+              </DialogTitle>
               <button
                 onClick={handleClose}
                 className="flex h-[24px] w-[24px] shrink-0 cursor-pointer items-center justify-center">
@@ -61,9 +72,9 @@ export function ContactFormDialog({ isOpen, onClose }: ContactFormDialogProps) {
             </div>
 
             {/* Description */}
-            <p className="mb-8 w-[495px] font-sans text-[20px] font-medium leading-[1.2] tracking-tight text-green-secondary max-sm:w-full max-sm:text-[16px]">
+            <DialogDescription className="w-[495px] font-sans text-[20px] font-medium leading-[1.2] tracking-tight text-green-secondary max-sm:w-full max-sm:text-[16px]">
               {t.contactDialog.subtitle}
-            </p>
+            </DialogDescription>
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
@@ -85,16 +96,18 @@ export function ContactFormDialog({ isOpen, onClose }: ContactFormDialogProps) {
                 type="submit"
                 disabled={submitting}
                 className="w-full cursor-pointer rounded-lg bg-yellow-accent py-4 text-center font-sans text-[24px] font-medium uppercase tracking-tight text-green-dark transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60">
-                {submitting ? t.contactDialog.submitting : t.contactDialog.submit}
+                {submitting ?
+                  t.contactDialog.submitting
+                : t.contactDialog.submit}
               </button>
             </form>
           </>
         : <>
             {/* Success header row */}
-            <div className="mb-6 flex items-start justify-between">
-              <h2 className="w-[482px] font-sans text-[48px] font-bold uppercase leading-[1.1] tracking-tight text-green-secondary max-sm:w-full max-sm:text-[32px]">
+            <div className="flex items-start justify-between">
+              <DialogTitle className="w-[482px] font-sans text-[48px] font-bold uppercase leading-[1.1] tracking-tight text-green-secondary max-sm:w-full max-sm:text-[32px]">
                 {t.contactDialog.successTitle}
-              </h2>
+              </DialogTitle>
               <button
                 onClick={handleClose}
                 className="flex h-[24px] w-[24px] shrink-0 cursor-pointer items-center justify-center">
@@ -103,9 +116,9 @@ export function ContactFormDialog({ isOpen, onClose }: ContactFormDialogProps) {
             </div>
 
             {/* Subtitle */}
-            <p className="mb-8 w-[495px] font-sans text-[20px] font-medium leading-[1.2] tracking-tight text-green-secondary max-sm:w-full max-sm:text-[16px]">
+            <DialogDescription className="w-[495px] font-sans text-[20px] font-medium leading-[1.2] tracking-tight text-green-secondary max-sm:w-full max-sm:text-[16px]">
               {t.contactDialog.successSubtitle}
-            </p>
+            </DialogDescription>
 
             {/* Decorative image */}
             <div className="overflow-hidden rounded-lg">
@@ -114,12 +127,12 @@ export function ContactFormDialog({ isOpen, onClose }: ContactFormDialogProps) {
                 alt=""
                 width={1342}
                 height={464}
-                className="h-[232px] w-full "
+                className="h-[232px] w-full"
               />
             </div>
           </>
         }
-      </div>
-    </Modal>
+      </DialogContent>
+    </Dialog>
   );
 }

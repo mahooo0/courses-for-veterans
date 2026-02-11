@@ -17,22 +17,22 @@ export const en: TranslationDictionary = {
   forWhom: {
     title: "Who will benefit",
     subtitle:
-      "Whether you\u2019re starting fresh or leveling up, our courses are designed to help you achieve your goals.",
+      "Training that fits your life. Online and offline formats. No unnecessary theory. Maximum practice.",
     cards: [
       {
-        title: "Beginner professionals",
+        title: "Veterans and active military",
         description:
-          "Lorem ipsum dolor sit amet consectetur. Donec aenean sagittis urna cursus tellus odio. Facilisis quam non at aliquam faucibus hendrerit non.",
+          "An opportunity to master a new profession, gain practical skills, and build a foundation for a stable income.",
       },
       {
-        title: "Beginner professionals",
+        title: "Military families",
         description:
-          "Lorem ipsum dolor sit amet consectetur. Donec aenean sagittis urna cursus tellus odio. Facilisis quam non at aliquam faucibus hendrerit non.",
+          "Training in modern specialties that allow remote work and flexible schedules.",
       },
       {
-        title: "Beginner professionals",
+        title: "Internally displaced persons",
         description:
-          "Lorem ipsum dolor sit amet consectetur. Donec aenean sagittis urna cursus tellus odio. Facilisis quam non at aliquam faucibus hendrerit non.",
+          "A tool for quick adaptation, new opportunities, and professional fulfillment regardless of location.",
       },
     ],
   },
@@ -41,24 +41,24 @@ export const en: TranslationDictionary = {
     tryNow: "[try now]",
     steps: [
       {
-        title: "Leave a request",
+        title: "Online learning",
         description:
-          "Lorem ipsum dolor sit amet consectetur. Donec aenean sagittis urna cursus tellus odio. Facilisis quam non at aliquam faucibus hendrerit non.",
+          "All lessons are available as recordings. Study at a convenient time and at your own pace.",
       },
       {
-        title: "Leave a request",
+        title: "Offline meetings",
         description:
-          "Lorem ipsum dolor sit amet consectetur. Donec aenean sagittis urna cursus tellus odio. Facilisis quam non at aliquam faucibus hendrerit non.",
+          "We regularly hold live meetings. An opportunity to ask questions, get support, and receive individual explanations.",
       },
       {
-        title: "Leave a request",
+        title: "Support",
         description:
-          "Lorem ipsum dolor sit amet consectetur. Donec aenean sagittis urna cursus tellus odio. Facilisis quam non at aliquam faucibus hendrerit non.",
+          "Private chats with students and mentors. Daily communication, answers to questions, and help throughout the learning process.",
       },
       {
-        title: "Leave a request",
+        title: "Free participation",
         description:
-          "Lorem ipsum dolor sit amet consectetur. Donec aenean sagittis urna cursus tellus odio. Facilisis quam non at aliquam faucibus hendrerit non.",
+          "Training within the project is completely free. No payments or hidden conditions.",
       },
     ],
   },
@@ -67,6 +67,32 @@ export const en: TranslationDictionary = {
     subtitle:
       "Whether you\u2019re starting fresh or leveling up, our courses are designed to help you achieve your goals.",
     startToday: "[start today]",
+    courseDescriptions: {
+      marketing: [
+        "A course about finding clients and earning money online.",
+        "You\u2019ll understand why people buy, how to make clear offers, and how to attract attention to a product or service.",
+        "Where it applies: online stores, service websites, social media, any business that needs clients.",
+        "Result: understanding how to turn ideas into money.",
+      ],
+      "web-dev": [
+        "A course about building websites.",
+        "You\u2019ll learn to create websites from scratch, understand how they work, and be able to build full pages independently.",
+        "Where it applies: business websites, landing pages, personal projects, freelance orders.",
+        "Result: the ability to create websites and take on orders.",
+      ],
+      "web-design": [
+        "A course about the visual appearance of websites.",
+        "You\u2019ll learn to make websites clean, modern, and user-friendly.",
+        "Where it applies: website design, interfaces, page layouts, working with projects and clients.",
+        "Result: the skill to create professional visuals.",
+      ],
+      "graphic-design": [
+        "A course about working with graphics and visuals.",
+        "You\u2019ll learn to create banners, advertisements, layouts, and various graphic materials.",
+        "Where it applies: social media, advertising, websites, any visual business tasks.",
+        "Result: the ability to earn money through design.",
+      ],
+    },
   },
   video: {
     title: "How it was",
@@ -83,7 +109,7 @@ export const en: TranslationDictionary = {
   contactDialog: {
     title: "Leave a request",
     subtitle:
-      "Whether you\u2019re starting fresh or leveling up, our courses are designed to help you achieve your goals.",
+      "Training that fits your life. Online and offline formats. No unnecessary theory. Maximum practice.",
     namePlaceholder: "Your Name",
     phonePlaceholder: "Your Phone",
     submit: "[send]",
@@ -96,29 +122,30 @@ export const en: TranslationDictionary = {
     titleLine2: "asked questions",
     items: [
       {
-        question: "Do I need prior experience to take the courses?",
+        question: "Can I combine studying with service or work?",
         answer:
-          "No, prior experience is not required. Our courses are designed to be accessible for all skill levels. We start with the basics and gradually move to more advanced topics.",
+          "Yes. The training is built in a flexible format. Lessons are available as recordings, so you can study at a convenient time.",
       },
       {
-        question: "How long does it take to complete one course?",
+        question:
+          "What if I have no experience or don\u2019t understand these fields at all?",
         answer:
-          "The course duration depends on the chosen program. On average, a course takes 4-8 weeks with a workload of 2-3 hours per week.",
+          "That\u2019s okay. The courses are designed for beginners. We explain everything step by step and clearly.",
       },
       {
-        question: "Is it possible to get a certificate upon completion?",
+        question: "Can I study if I have an injury or disability?",
         answer:
-          "Yes, after successfully completing a course you will receive a certificate confirming your skills and knowledge.",
+          "Yes. The online learning format allows you to take courses comfortably regardless of physical limitations.",
       },
       {
-        question: "How do I sign up for a course?",
+        question:
+          "What should I do if questions or difficulties arise during the course?",
         answer:
-          "To sign up for a course, leave a request on our website or contact us by phone. Our manager will get back to you within a business day.",
+          "You\u2019re not alone. There are chats with mentors and instructors where you can get help and explanations.",
       },
       {
-        question: "Are the courses free for veterans?",
-        answer:
-          "Yes, all our courses are completely free for veterans and their family members.",
+        question: "Do I need to pay for anything?",
+        answer: "No. Training within the project is free.",
       },
     ],
   },

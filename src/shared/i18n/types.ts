@@ -28,6 +28,7 @@ export interface TranslationDictionary {
     title: string;
     subtitle: string;
     startToday: string;
+    courseDescriptions: Record<string, string[]>;
   };
   video: {
     title: string;
