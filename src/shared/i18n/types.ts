@@ -57,6 +57,12 @@ export interface TranslationDictionary {
     titleLine2: string;
     items: { question: string; answer: string }[];
   };
+  validation: {
+    nameRequired: string;
+    phoneInvalid: string;
+    submitSuccess: string;
+    submitError: string;
+  };
   footer: {
     address: string;
     socialMediaAlt: string;

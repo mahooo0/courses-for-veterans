@@ -149,6 +149,12 @@ export const en: TranslationDictionary = {
       },
     ],
   },
+  validation: {
+    nameRequired: "Please enter your name",
+    phoneInvalid: "Please enter a valid phone number",
+    submitSuccess: "Request sent successfully!",
+    submitError: "Something went wrong. Please try again.",
+  },
   footer: {
     address:
       "1st Guards Army St., 39a, Chernihiv, Chernihiv Oblast, 14000",

@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { toast } from "sonner";
 import {
   Dialog,
   DialogContent,
   DialogTitle,
   DialogDescription,
 } from "@/shared/ui/dialog";
+import { PhoneInput, isValidPhone } from "@/shared/ui/PhoneInput";
 import { useTranslation } from "@/shared/i18n";
 import closeIcon from "@/shared/assets/icons/close.svg";
 import successDecorationImg from "@/shared/assets/images/success-decoration.png";
@@ -22,29 +24,47 @@ export function ContactFormDialog({ isOpen, onClose }: ContactFormDialogProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const { t } = useTranslation();
 
   const handleClose = () => {
     setStep("form");
     setName("");
     setPhone("");
+    setErrors({});
     onClose();
+  };
+
+  const validate = (): boolean => {
+    const newErrors: { name?: string; phone?: string } = {};
+    if (!name.trim()) {
+      newErrors.name = t.validation.nameRequired;
+    }
+    if (!isValidPhone(phone)) {
+      newErrors.phone = t.validation.phoneInvalid;
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
+
     setSubmitting(true);
     try {
-      await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, phone }),
       });
+      if (!res.ok) throw new Error("Request failed");
+      toast.success(t.validation.submitSuccess);
+      setStep("success");
     } catch {
-      // Don't block UX on network errors
+      toast.error(t.validation.submitError);
     } finally {
       setSubmitting(false);
-      setStep("success");
     }
   };
 
@@ -78,20 +98,37 @@ export function ContactFormDialog({ isOpen, onClose }: ContactFormDialogProps) {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-              <input
-                type="text"
-                placeholder={t.contactDialog.namePlaceholder}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="rounded-lg bg-white px-6 py-[17px] font-sans text-[16px] text-green-dark outline-none placeholder:text-green-dark/50"
-              />
-              <input
-                type="tel"
-                placeholder={t.contactDialog.phonePlaceholder}
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="rounded-lg bg-white px-6 py-[17px] font-sans text-[16px] text-green-dark outline-none placeholder:text-green-dark/50"
-              />
+              <div>
+                <input
+                  type="text"
+                  placeholder={t.contactDialog.namePlaceholder}
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
+                  }}
+                  className={`w-full rounded-lg bg-white px-6 py-[17px] font-sans text-[16px] text-green-dark outline-none placeholder:text-green-dark/50 ${
+                    errors.name ? "ring-2 ring-red-500" : ""
+                  }`}
+                />
+                {errors.name && (
+                  <p className="mt-1 font-sans text-sm text-red-500">{errors.name}</p>
+                )}
+              </div>
+              <div>
+                <PhoneInput
+                  value={phone}
+                  onChange={(val) => {
+                    setPhone(val);
+                    if (errors.phone) setErrors((prev) => ({ ...prev, phone: undefined }));
+                  }}
+                  placeholder={t.contactDialog.phonePlaceholder}
+                  error={!!errors.phone}
+                />
+                {errors.phone && (
+                  <p className="mt-1 font-sans text-sm text-red-500">{errors.phone}</p>
+                )}
+              </div>
               <button
                 type="submit"
                 disabled={submitting}

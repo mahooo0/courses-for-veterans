@@ -150,6 +150,12 @@ export const uk: TranslationDictionary = {
       },
     ],
   },
+  validation: {
+    nameRequired: "Будь ласка, введіть ваше ім'я",
+    phoneInvalid: "Будь ласка, введіть коректний номер",
+    submitSuccess: "Заявку успішно надіслано!",
+    submitError: "Щось пішло не так. Спробуйте ще раз.",
+  },
   footer: {
     address:
       "вул. 1-ї Гвардійської Армії, 39а, Чернігів, Чернігівська область, 14000",
