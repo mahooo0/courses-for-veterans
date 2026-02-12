@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslation } from "@/shared/i18n";
 import heroBg from "@/shared/assets/images/hero-bg.png";
 import vidmovlennyaImg from "@/shared/assets/images/vidmovlennya.png";
+import toRecoveryImg from "@/shared/assets/images/to-recovery.png";
 
 interface HeroProps {
   onStartToday: () => void;
@@ -11,7 +12,7 @@ interface HeroProps {
 }
 
 export function Hero({ onStartToday, onViewCourses }: HeroProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
 
   return (
     <section className="relative h-[750px] overflow-hidden bg-green-dark max-sm:h-[600px] sm:h-[650px] md:h-[700px] lg:h-[750px]">
@@ -57,7 +58,7 @@ export function Hero({ onStartToday, onViewCourses }: HeroProps) {
             {t.hero.bigTitle}
           </h1>
           <Image
-            src={vidmovlennyaImg}
+            src={locale === "en" ? toRecoveryImg : vidmovlennyaImg}
             alt={t.hero.decorativeAlt}
             width={1126}
             height={140}

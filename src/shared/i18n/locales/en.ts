@@ -11,7 +11,7 @@ export const en: TranslationDictionary = {
     line2: "for veterans",
     startToday: "[start today]",
     viewCourses: "view courses +",
-    bigTitle: "on the path",
+    bigTitle: "on the road",
     decorativeAlt: "recovery",
   },
   forWhom: {
