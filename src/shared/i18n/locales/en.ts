@@ -156,8 +156,7 @@ export const en: TranslationDictionary = {
     submitError: "Something went wrong. Please try again.",
   },
   footer: {
-    address:
-      "1st Guards Army St., 39a, Chernihiv, Chernihiv Oblast, 14000",
+    address: "Kyiv, Ukraine",
     socialMediaAlt: "Social media",
   },
 };

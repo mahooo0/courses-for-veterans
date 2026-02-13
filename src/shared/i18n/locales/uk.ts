@@ -157,8 +157,7 @@ export const uk: TranslationDictionary = {
     submitError: "Щось пішло не так. Спробуйте ще раз.",
   },
   footer: {
-    address:
-      "вул. 1-ї Гвардійської Армії, 39а, Чернігів, Чернігівська область, 14000",
+    address: "Київ, Україна",
     socialMediaAlt: "Соціальні мережі",
   },
 };

@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { Logo, LanguageSwitcher } from "@/shared/ui";
 import { useTranslation } from "@/shared/i18n";
-import phoneSrc from "@/shared/assets/icons/phone.svg";
 import envelopeSrc from "@/shared/assets/icons/envelope.svg";
 import mapMarkerSrc from "@/shared/assets/icons/map-marker.svg";
-import socialMediaSrc from "@/shared/assets/icons/social-media.svg";
+import instagramSrc from "@/shared/assets/icons/instagram.svg";
+import telegramSrc from "@/shared/assets/icons/telegram.svg";
+import facebookSrc from "@/shared/assets/icons/facebook.svg";
 
 export function Footer() {
   const { t } = useTranslation();
@@ -19,12 +20,6 @@ export function Footer() {
 
         {/* Contact info */}
         <div className="flex w-[362px] flex-col gap-5 max-sm:w-full max-sm:items-start max-md:items-start">
-          <div className="flex items-center gap-2">
-            <Image src={phoneSrc} alt="" width={20} height={20} />
-            <span className="font-sans text-base tracking-tight text-lilac">
-              +38 (067) 422 07 76
-            </span>
-          </div>
           <div className="flex items-center gap-2">
             <Image src={envelopeSrc} alt="" width={24} height={24} />
             <span className="font-sans text-base tracking-tight text-lilac">
@@ -48,12 +43,29 @@ export function Footer() {
         {/* Language switcher + Social media */}
         <div className="flex w-[380px] items-center gap-[54px] max-sm:w-full max-sm:flex-col max-sm:items-start max-sm:gap-6 max-md:flex-col max-md:gap-6">
           <LanguageSwitcher />
-          <Image
-            src={socialMediaSrc}
-            alt={t.footer.socialMediaAlt}
-            width={212}
-            height={60}
-          />
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.instagram.com/nadia_fund"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-opacity hover:opacity-75">
+              <Image src={instagramSrc} alt="Instagram" width={32} height={32} />
+            </a>
+            <a
+              href="https://t.me/foundation_nadia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-opacity hover:opacity-75">
+              <Image src={telegramSrc} alt="Telegram" width={36} height={32} />
+            </a>
+            <a
+              href="https://www.facebook.com/nadia.fund"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-opacity hover:opacity-75">
+              <Image src={facebookSrc} alt="Facebook" width={36} height={36} />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
